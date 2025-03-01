@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{if hasmath}} {{insert head_katex.html }}     {{end}}
+  {{if hascode}} {{insert head_highlight.html }}   {{end}}
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/css/franklin.css">
+  <!-- <link href="/css/style.css" rel="stylesheet" type="text/css"> -->
+  <link href="/css/col.css" rel="stylesheet" media="screen and (min-width: 630px)" type="text/css">
+  {{isdef title}} <title>{{fill title}}</title>  {{end}}
+</head>
+<body>
+
+{{isnotpage index}}
+<div class="franklin-content" style="margin-top: 1.5em;">
+    <a href="/""><b>(home)</b></a>
+</div>
+{{end}}
+<!-- Content appended here -->

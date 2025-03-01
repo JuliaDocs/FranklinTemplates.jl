@@ -17,6 +17,7 @@ const LIST_OF_TEMPLATES = (
     "pure-sm",
     "tufte",
     "vela",
+    "academic",
     "celeste",
     "bootstrap5")
 

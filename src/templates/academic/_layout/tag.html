@@ -1,0 +1,35 @@
+<!--
+IMPORTANT NOTE:
+  on tag pages you CANNOT rely on local page variable such as `hasmath`
+  `hascode`, `title` etc as the generation of the tag pages will be triggered
+  by different pages each of which will have defined these variables in
+  a different ways.
+  For tag pages, ALL variables used MUST be
+  - global ones (whatever you might have defined in `config`)
+  - be tag string (`tag`)
+  otherwise you cannot guarantee their content.
+  There is one way to bend this: you can use {{fill varname rpath}} to
+  input the value of the variable `varname` defined at the page corresponding
+  to `rpath`.
+  You can also use `{{ispage tag/blog/*}} ... {{end}}` to have things that
+  depend upon which tag we're on (for instance if you want a specific title).
+-->
+
+{{insert head.html}}
+<body>
+  <div class="franklin-content">
+    {{ispage tag/blog/*}}
+      <h1>All Posts</h1>
+    {{else}}
+      <h1>Tag: {{fill fd_tag}}</h1>
+    {{end}}
+    
+    <p>
+      {{custom_taglist}}
+      <!-- <a href="/"><b>(back)</b></a> -->
+    </p>
+
+    {{insert page_foot.html}}
+  </div>
+</body>
+</html>

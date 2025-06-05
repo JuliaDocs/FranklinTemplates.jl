@@ -49,6 +49,10 @@ descr = Dict{String,String}(
                    <span class="th-name">vela</span>
                    <p>A single-column theme with a sliding menu-bar, a simple stylesheet and extra javascript for the menu-bar. (Adapted from the Grav theme.)</p>
                    """,
+    "academic"  => """
+                   <span class="th-name">academic</span>
+                   <p>Simple one-page portfolio with blog posts and papers list, no extra javascript and a simple stylesheet.</p>
+                   """,
     "celeste"   => """
                    <span class="th-name">celeste</span>
                    <p>A lightweight theme that features a minimalist, content-first design. (Adapted from the Jekyll theme.)</p>

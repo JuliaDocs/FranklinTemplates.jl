@@ -17,7 +17,7 @@ function hfun_bar(vname)
     val = Meta.parse(vname[1])
     return round(sqrt(val), digits=2)
 end
-  
+
 function hfun_m1fill(vname)
     var = vname[1]
     return pagevar("index", var)
@@ -154,7 +154,7 @@ end
 
 Find and list all papers with all tags in `params`.
 """
-function hfun_paperswithtags(params)::String
+@delay function hfun_paperswithtags(params)::String
     folder = "papers"
     checktags = params
 
@@ -198,6 +198,9 @@ function hfun_paperswithtags(params)::String
         l = Franklin.unixify(html)
 
         pvd = pagevar(path, :date)
+        if isnothing(pvd)
+            pvd = Date(Dates.unix2datetime(stat(path * ".md").ctime))
+        end
 
         # paper title
         write(io, """$t <date>($(Dates.format(pvd, "u yyyy")))</date><br>\n""")
@@ -212,8 +215,11 @@ function hfun_paperswithtags(params)::String
             write(io, "&ensp;/&ensp;")
         end
         # arXiv
-        write(io, """<a href=$(pagevar(path, :arxiv))>arXiv</a>""")
-        write(io, "&ensp;/&ensp;")
+        arxiv = pagevar(path, :arxiv)
+        if !isempty(arxiv)
+            write(io, """<a href=$(arxiv)>arXiv</a>""")
+            write(io, "&ensp;/&ensp;")
+        end
         # code
         code = pagevar(path, :code)
         if !isnothing(code) && !isempty(code)
@@ -228,6 +234,9 @@ function hfun_paperswithtags(params)::String
         end
         # bibtex
         write(io, """<a href="/$(l[1:end-1])#bibtex">bibTeX</a>\n""")
+        if i != length(paths)
+            write(io, "<br>")
+        end
     end
     write(io,"</p>")
     return String(take!(io))

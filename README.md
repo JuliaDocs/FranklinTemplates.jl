@@ -29,6 +29,7 @@ The grid below keeps track of their name, license, the kind of navbar they have 
 | `"minimal-mistakes"` | [Minimal mistakes](https://github.com/mmistakes/minimal-mistakes) | [MIT](https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE) | Side/Top | No |
 | `"celeste"` | [Celeste](https://github.com/nicoelayda/celeste) | [MIT](https://github.com/nicoelayda/celeste/blob/master/LICENSE) | Top | No |
 | `"bootstrap5"` | [Bootstrap5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | [MIT](https://github.com/twbs/bootstrap/blob/main/LICENSE) | Top | No |
+| `"academic"` | [Jon Barron](https://jonbarron.info/) | N/A | No | No |
 
 ## Modifying or adding a template
 

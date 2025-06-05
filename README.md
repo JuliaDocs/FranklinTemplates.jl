@@ -1,6 +1,6 @@
 # Franklin Templates
 
-Templates for [Franklin](https://github.com/tlienart/Franklin.jl), the static-site generator in Julia.
+Templates for [Franklin](https://github.com/JuliaDocs/Franklin.jl), the static-site generator in Julia.
 
 Most of these templates are adapted from existing, popular templates with minor modifications to accommodate Franklin's content.
 

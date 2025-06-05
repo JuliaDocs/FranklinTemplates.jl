@@ -30,15 +30,15 @@
 a^<span class="hljs-number">2</span></code></pre><pre><code class="plaintext hljs">25</code></pre>
 <p>Any valid code basically:</p>
 <pre><code class="julia hljs">v = [<span class="hljs-string">&quot;Thom&quot;</span>, <span class="hljs-string">&quot;Martha&quot;</span>, <span class="hljs-string">&quot;Smith&quot;</span>, <span class="hljs-string">&quot;John&quot;</span>]
-f = first.(v)</code></pre><pre><code class="plaintext hljs">4-element Array{Char,1}:
+f = first.(v)</code></pre><pre><code class="plaintext hljs">4-element Vector{Char}:
  &#x27;T&#x27;: ASCII/Unicode U+0054 (category Lu: Letter, uppercase)
  &#x27;M&#x27;: ASCII/Unicode U+004D (category Lu: Letter, uppercase)
  &#x27;S&#x27;: ASCII/Unicode U+0053 (category Lu: Letter, uppercase)
  &#x27;J&#x27;: ASCII/Unicode U+004A (category Lu: Letter, uppercase)</code></pre>
 <p>So the workflow is to just write a standard Literate document using Franklin markdown in the comments and normal code. You can also hide lines:</p>
-<pre><code class="julia hljs">randn()</code></pre><pre><code class="plaintext hljs">0.2972879845354616</code></pre>
+<pre><code class="julia hljs">randn()</code></pre><pre><code class="plaintext hljs">-0.07058313895389791</code></pre>
 <p>Or hide everything &#40;note that for the line to be taken as comment for the code block there should be no whitespace between the <code>#</code> and the <code>h</code>&#41;.</p>
-<pre><code class="plaintext hljs">2.046609693639258</code></pre>
+<pre><code class="plaintext hljs">-1.4779407158554378</code></pre>
 <p>It still shows the result though since <code>showall &#61; true</code>&#33; If you want to suppress it, just use a <code>;</code> on the last line:</p>
 
 <p>That&#39;s basically it.</p>
@@ -46,7 +46,7 @@ f = first.(v)</code></pre><pre><code class="plaintext hljs">4-element Array{Char
 </code></pre>
  </p>
 <div class="page-foot">
-    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> The Oracle. Last modified: September 13, 2023.
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> The Oracle. Last modified: June 05, 2025.
     Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
 </div>
 </div><!-- CONTENT ENDS HERE -->

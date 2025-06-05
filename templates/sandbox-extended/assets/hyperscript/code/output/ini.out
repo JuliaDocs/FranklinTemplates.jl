@@ -1,0 +1,3 @@
+ArgumentError: Package Hyperscript [47d2ed2b-36de-50cf-bf87-49c2cf4b8b91] is required but does not seem to be installed:
+ - Run `Pkg.instantiate()` to install all recorded dependencies.
+

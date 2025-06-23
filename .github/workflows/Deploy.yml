@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          persist-credentials: false
+          persist-credentials: 
       # NOTE: Python is necessary for the pre-rendering (minification) step
       - name: Install python
         uses: actions/setup-python@v2

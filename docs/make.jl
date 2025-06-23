@@ -1,4 +1,4 @@
-using FranklinTemplates, Franklin
+      FranklinTemplates, Franklin
 
 descr = Dict{String,String}(
     "sandbox"   => """
@@ -68,64 +68,61 @@ build = joinpath(@__DIR__, "build")
 
 isdir(build) || mkdir(build)
 
-function fixdir(τ::String)
-    for name in readdir(τ; join=true)
-        occursin("__site", name) && continue
+ fixdir(τ::String)
+     name in readdir(τ; join=true)
+        occursin("__site", name) && 
         rm(name, recursive=true)
-    end
-    for name in readdir(joinpath(τ, "__site"); join=true)
+    
+     name in readdir(joinpath(τ, "__site"); join=true)
         cp(name, replace(name, "__site" => ""))
-    end
+    
     rm(joinpath(τ, "__site"), recursive=true)
     # 2. fix links in index.html etc
     html_files = String[]
-    for (root, _, files) ∈ walkdir(τ)
-        for file ∈ files
-            if endswith(file, ".xml")
+     (root, _, files) ∈ walkdir(τ)
+         file ∈ files
+             endswith(file, ".xml")
                 fp  = joinpath(root, file)
                 rss = read(fp, String)
                 rss = replace(rss, r"\/([a-zA-Z0-9\_-]+\.xsl)" => SubstitutionString("/FranklinTemplates.jl/templates/$τ/\\1"))
                 write(fp, rss)
-            end
-            endswith(file, ".html") || continue
+            
+            endswith(file, ".html") || 
             fp   = joinpath(root, file)
             html = read(fp, String)
             html = replace(html, "href=\"/" => "href=\"/templates/$τ/")
             html = replace(html, "src=\"/" => "src=\"/templates/$τ/")
             write(fp, html)
-        end
-    end
-    return
-end
+
 
 # make a template folder with a subfolder for each template
 # compile each template with a fullpass of Franklin
-begin
+
     # Clean up the directory to avoid clashes etc.
-    if isdir(joinpath(build, "templates"))
+       isdir(joinpath(build, "templates"))
         rm(joinpath(build, "templates"), recursive=true)
-    end
+    
     # Make the template folder.
     templates = mkpath(joinpath(build, "templates"))
     cd(templates)
-    for τ ∈ FranklinTemplates.LIST_OF_TEMPLATES
+       τ ∈ FranklinTemplates.LIST_OF_TEMPLATES
         println("🍏  template: $τ")
         FranklinTemplates.newsite(τ; template=τ, changedir=true, verbose=false)
         optimize(minify=(τ ∉ ("vela", "sandbox-extended"))) # see issue #7
         cd("..")
         fixdir(τ)
-    end
+    
     # copy over the thumb folder
     cp(joinpath(dirname(build), "thumb"), joinpath(build, "thumb"), force=true)
-end
+
 
 # build the index page
-begin
+
     io = IOBuffer()
     write(io, read(joinpath(@__DIR__, "index_head.html"), String))
 
     # One card per template
-    for τ ∈ FranklinTemplates.LIST_OF_TEMPLATES
+        τ ∈ FranklinTemplates.LIST_OF_TEMPLATES
         c = """
             <a href="/templates/$τ/index.html" target="_blank" rel="noopener noreferrer" title="$τ">
             <div class="card" id="$τ">
@@ -136,9 +133,9 @@ begin
             </a>
             """
         write(io, c)
-    end
+    
     write(io, read(joinpath(@__DIR__, "index_foot.html"), String))
     write(joinpath(build, "index.html"), take!(io))
-end
+
 
 cd(pkgdir(FranklinTemplates))

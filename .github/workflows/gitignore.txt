@@ -1,0 +1,6 @@
+*DS_Store
+docs/build/
+junk/
+Manifest.toml
+node_modules/
+package-lock.json

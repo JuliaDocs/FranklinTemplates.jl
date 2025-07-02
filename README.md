@@ -10,7 +10,7 @@ Most importantly they are designed to be simple to adjust to your needs.
 
 ## List of templates
 
-Get an idea for which template you like using [this preview](https://tlienart.github.io/FranklinTemplates.jl/).
+Get an idea for which template you like using [this preview](https://juliadocs.org/FranklinTemplates.jl/).
 The grid below keeps track of their name, license, the kind of navbar they have and whether they require Javascript.
 
 | Name | Source | License | Navbar | JS  |

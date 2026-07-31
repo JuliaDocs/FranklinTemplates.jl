@@ -19,7 +19,8 @@ const LIST_OF_TEMPLATES = (
     "vela",
     "academic",
     "celeste",
-    "bootstrap5")
+    "bootstrap5",
+    "smpuj")
 
 include("utils.jl")
 

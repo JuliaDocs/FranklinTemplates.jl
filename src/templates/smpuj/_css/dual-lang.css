@@ -1,0 +1,121 @@
+/*******************************************************************/
+/*		dual language page				   */
+/*******************************************************************/
+/* Nice to see the difference but delete it later
+.multilang .lang-en {
+  background: var(--secondary-background-color);
+  text-decoration: none;
+}
+
+.multilang .lang-native {
+  background: var(--accent-color);
+  text-decoration: none;
+}
+*/
+
+/* Hide the checkbox that we toggle with `.lang-toggle` */
+.lang-checkbox {
+  display: none;
+}
+
+/* Style the `label` that we use to target the `.lang-checkbox` */
+.lang-toggle {
+  position: fixed;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  display: block;
+  width: 2.2rem;
+  padding: 0.5rem 0.65rem;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lang-toggle::before {
+  display: block;
+  content: "pl";
+  width: 100%;
+  padding-bottom: 0.125rem;
+}
+
+@media (min-width: 30.1rem) {
+  .lang-toggle {
+    width: 2.25rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .lang-toggle::before {
+    padding-bottom: 0.15rem;
+    border-top-width: 0.45rem;
+    border-bottom-width: 0.15rem;
+  }
+}
+
+@media (min-width: 1200px) { /* TODO could use further adjustments */
+  
+  .event-descrb {
+            display: grid;
+	    grid-template-columns: 3fr 2fr;
+        }
+
+	.event-descrb .event-descrb-text {
+		padding: 1rem;
+	}
+
+	.event-descrb .fig p {
+		text-align: right;
+	}
+
+	.event-descrb .fig img {
+		margin: auto;
+		width: 100%;
+	}
+}
+
+.lang-toggle {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.lang-toggle {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+#sidebar-checkbox:checked ~ .lang-toggle {
+  -webkit-transform: translateX(var(--sidebar-width));
+  -ms-transform: translateX(var(--sidebar-width));
+  transform: translateX(var(--sidebar-width));
+}
+/* Style the `label` differently when the checkbox is checked */
+#lang-checkbox:checked ~ .lang-toggle::before {
+  content: "en";
+}
+
+/* Actual logic for language switching */
+.wrap .lang-native {
+  display: none;
+}
+
+#lang-checkbox:checked ~ .wrap .lang-native {
+  display: block;
+}
+
+#lang-checkbox:checked ~ .wrap .lang-en {
+  display: none;
+}
+
+.sidebar .lang-native {
+  display: none;
+}
+
+#lang-checkbox:checked ~ .sidebar .lang-native {
+  display: block;
+}
+
+#lang-checkbox:checked ~ .sidebar .lang-en {
+  display: none;
+}

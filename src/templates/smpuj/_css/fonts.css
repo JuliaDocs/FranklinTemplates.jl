@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "Computer Modern Serif";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSerif-Roman.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Serif";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSerif-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Serif";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSerif-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Serif";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSerif-BoldItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-Roman.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-Oblique.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-SemiBoldOblique.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Bright";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUBright-BoldOblique.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Concrete";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUConcrete-Roman.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Concrete";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUConcrete-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Concrete";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUConcrete-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Concrete";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUConcrete-BoldItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUTypewriter-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUTypewriter-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUTypewriter-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUTypewriter-BoldItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSansSerif.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSansSerif-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Sans";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSansSerif-Oblique.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Computer Modern Sans";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../assets/fonts/CMUSansSerif-BoldOblique.woff2") format("woff2");
+}

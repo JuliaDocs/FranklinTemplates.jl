@@ -1,0 +1,50 @@
+<!-- CONTENT ENDS HERE -->
+    </div> <!-- wrap -->
+    {{ if hasmath }}
+        {{ insert foot_katex.html }}
+    {{ end }}
+    {{ if hascode }}
+        {{ insert foot_highlight.html }}
+    {{ end }}
+    <!-- Buttons -->
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <label for="theme-checkbox" class="theme-toggle"></label>
+    <label for="lang-checkbox" class="lang-toggle"></label>
+    
+
+    <!-- The scripts below make the page remember the preferences when going to a subpage.
+    Uncomment them if you accept the usage of JavaScript :) -->
+
+    <!--
+    <script>
+      // Fetch the light/dark mode from storage
+      const themeCheckbox = document.getElementById('theme-checkbox');
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        themeCheckbox.checked = true;
+      }
+      
+      // Save the chosen mode on switching it
+      themeCheckbox.addEventListener('change', function() {
+        localStorage.setItem('theme', this.checked ? 'dark' : 'light');
+      });
+    </script>
+    -->
+  
+    <!--
+    <script>
+      // Fetch the language from storage
+      const langCheckbox = document.getElementById('lang-checkbox');
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'native') {
+        langCheckbox.checked = true;
+      }
+      
+      // Save the chosen lang on switching it
+      langCheckbox.addEventListener('change', function() {
+        localStorage.setItem('lang', this.checked ? 'native' : 'en');
+      });
+    </script>
+    -->
+  </body>
+</html>

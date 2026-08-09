@@ -64,6 +64,9 @@ descr = Dict{String,String}(
     "smpuj"     => """
                     <span class="th-name">smpuj</span>
                     <p>Single-column theme with two-language support, a sliding menu-bar, and light/dark modes. LaTeX fonts and all styling in CSS variables, JS is optional.</p>
+    "expert-kitty"=> """
+                    <span class="th-name">expert-kitty</span>
+                    <p>A portfolio theme with a blog, a card-style listing section, and light/dark mode switch feature. (Adapted from the basic and Minimal Mistakes Jekyll themes.)</p>
                 """,
     )
 

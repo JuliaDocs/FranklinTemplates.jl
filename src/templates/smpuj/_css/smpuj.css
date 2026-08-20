@@ -580,7 +580,7 @@ body:has(#theme-checkbox:checked) .contact-block a {
   margin-left: 30%;
   margin-right: 30%;
   padding: 0px;
-  width: 40%;
+  width: auto;
   height: 36px;
 }
 
@@ -590,8 +590,8 @@ body:has(#theme-checkbox:checked) .contact-block a {
  */
 .svg-icon {
   display: inline-block;
-  width: 16.3px;
-  height: 13.45px;
+  width: auto;
+  height: var(--normal);
   overflow: hidden;
   margin: 0px;
 }

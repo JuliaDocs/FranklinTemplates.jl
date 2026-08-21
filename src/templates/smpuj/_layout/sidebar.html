@@ -1,0 +1,136 @@
+<input type="checkbox" class="lang-checkbox" id="lang-checkbox">
+<input type="checkbox" id="theme-checkbox" class="theme-checkbox">
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <!-- English navigation -->
+  <div class="lang-en">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item {{ispage index.html}}active{{end}}" href="/">Home</a>
+      <a class="sidebar-nav-item {{ispage menu1/*}}active{{end}}" href="/menu1/">Menu 1</a>
+      <a class="sidebar-nav-item {{ispage menu2/*}}active{{end}}" href="/menu2/">Menu 2</a>
+      <a class="sidebar-nav-item {{ispage menu3/*}}active{{end}}" href="/menu3/">Menu 3</a>
+    </nav>
+  </div>
+
+  <!-- Polish navigation -->
+  <div class="lang-native">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item {{ispage index.html}}active{{end}}" href="/">Strona główna</a>
+      <a class="sidebar-nav-item {{ispage menu1/*}}active{{end}}" href="/menu1/">Podstrona 1</a>
+      <a class="sidebar-nav-item {{ispage menu2/*}}active{{end}}" href="/menu2/">Podstrona 2</a>
+      <a class="sidebar-nav-item {{ispage menu3/*}}active{{end}}" href="/menu3/">Podstrona 3</a>
+    </nav>
+  </div>
+
+  <!-- @KMPSUJ. ---->
+  <div class="sidebar-item">
+    <p>&copy; {{fill author}}.</p>
+  </div>
+
+  <!-- Sidebar Contact Section -->
+  <div class="sidebar-item">
+
+    <!-- English Contact Section -->
+    <div class="lang-en">
+      <div class="sidebar-contact">
+        <h4>Contact</h4>
+        <p style="color: var(--header-text-color);">Franklin.jl is used world wide, but add your office adres if you like</p>
+        <a href="https://franklinjl.org" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/icons/house-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="Home">
+
+          <img src="/assets/icons/house-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="Home">
+
+            Official page
+        </a><br>
+        <a href="mailto: example@example.com" target="_blank" rel="noreferrer">
+          <img src="/assets/icons/mail-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="Mail">
+
+          <img src="/assets/icons/mail-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="Mail">
+
+            example@example.com
+        </a><br>
+        <a href="https://github.com/JuliaDocs/Franklin.jl" target="_blank" rel="noreferrer">
+          <img src="/assets/icons/github-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="GitHub">
+
+          <img src="/assets/icons/github-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="GitHub">
+
+          GitHub
+        </a><br>
+      </div>
+    </div>
+
+    <!-- Polish Contact Section -->
+    <div class="lang-native">
+      <div class="sidebar-contact">
+        <h4>Kontakt</h4>
+        <p style="color: var(--header-text-color);">Franklin.jl jest używany na całym świecie, ale można tu dodać adres biura</p>
+        <a href="https://franklinjl.org" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/icons/house-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="Home">
+
+          <img src="/assets/icons/house-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="Home">
+
+          Oficjalna strona
+        </a><br>
+        <a href="mailto: example@example.com" target="_blank" rel="noreferrer">
+          <img src="/assets/icons/mail-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="Mail">
+
+          <img src="/assets/icons/mail-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="Mail">
+
+            example@example.com
+        </a><br>
+        <a href="https://github.com/JuliaDocs/Franklin.jl" target="_blank" rel="noreferrer">
+          <img src="/assets/icons/github-icon-blue.svg"
+            class="svg-icon icon-light"
+            alt="GitHub">
+
+          <img src="/assets/icons/github-icon-white.svg"
+            class="svg-icon icon-dark"
+            alt="GitHub">
+
+          GitHub
+        </a><br>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+content to avoid any CSS collisions with our real content. -->
+<div class="wrap">
+<div class="masthead">
+  <div class="container">
+    <h3 class="masthead-title">
+      <a href="/" title="Home">SMP UJ Franklin Theme </a> 
+      <div class="lang-en">
+        <small>Franklin.jl theme supporting two languages</small>
+      </div>
+      <div class="lang-native">
+        <small>Szablon do Franklin.jl wspierający dwa języki</small>
+      </div>
+    </h3>
+  </div>
+</div>

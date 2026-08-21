@@ -1,0 +1,39 @@
+.franklin-content {
+  position: relative;
+  padding-left: 2%;
+  padding-right: 2%;
+  line-height: normal;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 54rem;
+}
+
+/* Changed fixed colors form franklin.css to use global variables */
+.franklin-content blockquote {
+  border-left: 7px solid var(--accent-color);
+}
+
+.franklin-content a {
+  color: var(--links-color);
+  text-decoration: none;
+}
+
+.franklin-content .colbox-blue {
+  background-color: var(--block-background);
+  border-left: 5px solid var(--accent-color);
+}
+
+/* Adjust foot font colors */
+.franklin-content .page-foot a {
+  color: var(--less-important-text-color);
+}
+
+/* Proper formatting for table borders */
+.franklin-content th, td {
+  border: 1px solid var(--accent-color);
+}
+/* Reverence list border */
+.franklin-content .fndef tr {
+  border-left: 2px solid var(--accent-color);
+}

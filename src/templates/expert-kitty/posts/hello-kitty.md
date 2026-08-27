@@ -1,7 +1,7 @@
-@def rss_description = "In this post, I meow!"
-@def rss_pubdate = Date(2026, 8, 7)
+@def rss_description = "In this post, I say hello!"
+@def rss_pubdate = Date(2026, 10, 11)
 
-# Kitties are GOOOOOD!
+# Hello Kitty!
 
 ~~~
 <p>Published on: {{fill rss_pubdate}}</p>
@@ -12,8 +12,8 @@
 
 ## Introduction
 
-Meooooowwwww!
+Hello!
 
 ## Conclusion
 
-Meoooow??!!
+Meowello??!!

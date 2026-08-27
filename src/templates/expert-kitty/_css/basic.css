@@ -362,6 +362,14 @@ button:hover {
   justify-content: center;
 }
 
+.book-container {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 16px !important;
+  width: 100% !important;
+  align-items: start !important;
+}
+
 .card {
   width: 13em;
   border-radius: 8px;

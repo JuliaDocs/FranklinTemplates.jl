@@ -2,6 +2,6 @@
 
 \toc
 
-## Books
+## Journal Articles
 
-\insertpage{publications/kitty-book}
+\insertpage{articles/kitty-pub}

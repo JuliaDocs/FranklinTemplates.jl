@@ -31,6 +31,7 @@ The grid below keeps track of their name, license, the kind of navbar they have 
 | `"bootstrap5"` | [Bootstrap5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | [MIT](https://github.com/twbs/bootstrap/blob/main/LICENSE) | Top | No |
 | `"academic"` | [Jon Barron](https://jonbarron.info/) | N/A | No | No |
 | `"smpuj"` | [KMPS UJ](https://github.com/KMPSUJ) | MIT | Side (collapsable) | No (optional) |
+| `"expert-kitty"` | [Expert Kitty](https://phrafsanjani.github.io/expert-kitty/) | N/A | Top | Yes |
 
 ## Modifying or adding a template
 

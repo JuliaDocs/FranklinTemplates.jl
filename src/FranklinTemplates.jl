@@ -20,7 +20,8 @@ const LIST_OF_TEMPLATES = (
     "academic",
     "celeste",
     "bootstrap5",
-    "smpuj")
+    "smpuj",
+    "expert-kitty")
 
 include("utils.jl")
 

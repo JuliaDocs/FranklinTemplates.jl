@@ -1,0 +1,4 @@
+Sitemap: https://expert.kitty/franlin-theme/sitemap.xml
+
+User-agent: *
+Disallow:

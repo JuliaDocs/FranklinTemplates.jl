@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  Expert Kitty  ]]>
+    </title>
+    <link> https://expert.kitty/franlin-theme/ </link>
+    <description>
+      <![CDATA[  Expert Kitty&#39;s personal website – I will keep you company&#33;  ]]>
+    </description>
+    <atom:link
+      href="https://expert.kitty/franlin-theme/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  More goodies  ]]>
+  </title>
+  <link>  </link>
+  <guid>  </guid>
+  <description>
+    <![CDATA[  A short description of the page which would serve as <strong>blurb</strong> in a <code>RSS</code> feed; you can use basic markdown here but the whole description string must be a single line &#40;not a multiline string&#41;. Like this one for instance. Keep in mind that styling is minimal in RSS so for instance don&#39;t expect maths or fancy styling to work; images should be ok though: <img src="https://upload.wikimedia.org/wikipedia/en/b/b0/Rick_and_Morty_characters.jpg" alt="" />  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  
+<h1 id="more_goodies">More goodies</h1>
+<div class="franklin-toc"><ol><li>More markdown support</li><li>A bit more highlighting</li><li>More customisation<ol><li>Custom &quot;hfun&quot;</li><li>Custom &quot;lx&quot;</li></ol></li></ol></div>
+<h2 id="more_markdown_support">More markdown support</h2>
+<p>The Julia Markdown parser in Julia&#39;s stdlib is not exactly complete and Franklin strives to bring useful extensions that are either defined in standard specs such as Common Mark or that just seem like useful extensions.</p>
+<ul>
+<li><p>indirect references for instance &#91;like so&#93;</p>
+</li>
+</ul>
+<p> or also for images</p>
+<p>&#33;&#91;&#93;&#91;some image&#93;</p>
+<p>some people find that useful as it allows referring multiple times to the same link for instance.</p><ul>
+<li><p>un-qualified code blocks are allowed and are julia by default, indented code blocks are not supported by default &#40;and there support will disappear completely in later version&#41;</p>
+</li>
+</ul>
+<pre><code class="language-julia">a &#61; 1
+b &#61; a&#43;1</code></pre>
+<p>you can specify the default language with <code>@def lang &#61; &quot;julia&quot;</code>. If you actually want a &quot;plain&quot; code block, qualify it as <code>plaintext</code> like</p>
+<pre><code class="language-plaintext">so this is plain-text stuff.</code></pre>
+<h2 id="a_bit_more_highlighting">A bit more highlighting</h2>
+<p>Extension of highlighting for <code>pkg</code> an <code>shell</code> mode in Julia:</p>
+<pre><code class="language-julia-repl">&#40;v1.4&#41; pkg&gt; add Franklin
+shell&gt; blah
+julia&gt; 1&#43;1
+&#40;Sandbox&#41; pkg&gt; resolve</code></pre>
+<p>you can tune the colouring in the CSS etc via the following classes:</p>
+<ul>
+<li><p><code>.hljs-meta</code> &#40;for <code>julia&gt;</code>&#41;</p>
+</li>
+<li><p><code>.hljs-metas</code> &#40;for <code>shell&gt;</code>&#41;</p>
+</li>
+<li><p><code>.hljs-metap</code> &#40;for <code>...pkg&gt;</code>&#41;</p>
+</li>
+</ul>
+<h2 id="more_customisation">More customisation</h2>
+<p>Franklin, by design, gives you a lot of flexibility to define how you want stuff be done, this includes doing your own parsing/processing and your own HTML generation using Julia code.</p>
+<p>In order to do this, you can define two types of functions in a <code>utils.jl</code> file which will complement your <code>config.md</code> file:</p>
+<ul>
+<li><p><code>hfun_*</code> allow you to plug custom-generated HTML somewhere</p>
+</li>
+<li><p><code>lx_*</code> allow you to do custom parsing of markdown and generation of HTML</p>
+</li>
+</ul>
+<p>The former &#40;<code>hfun_*</code>&#41; is most likely to be useful.</p>
+<h3 id="custom_hfun">Custom &quot;hfun&quot;</h3>
+<p>If you define a function <code>hfun_bar</code> in the <code>utils.jl</code> then you have access to a new template function <code>&#123;&#123;bar ...&#125;&#125;</code>. The parameters are passed as a list of strings, for instance variable names but it  could just be strings as well.</p>
+<p>For instance:</p>
+<pre><code class="language-julia">function hfun_bar&#40;vname&#41;
+  val &#61; Meta.parse&#40;vname&#91;1&#93;&#41;
+  return round&#40;sqrt&#40;val&#41;, digits&#61;2&#41;
+end</code></pre>.hf {background-color:black;color:white;font-weight:bold;}<p>Can be called with <code>&#123;&#123;bar 4&#125;&#125;</code>: <strong>2.0</strong>.</p>
+<p>Usually you will want to pass variable name &#40;either local or global&#41; and collect their value via one of <code>locvar</code>, <code>globvar</code> or <code>pagevar</code> depending on your use case. Let&#39;s have another toy example:</p>
+<pre><code class="language-julia">function hfun_m1fill&#40;vname&#41;
+  var &#61; vname&#91;1&#93;
+  return pagevar&#40;&quot;menu1&quot;, var&#41;
+end</code></pre>
+<p>Which you can use like this <code>&#123;&#123;m1fill title&#125;&#125;</code>: <strong>Expert Kitty</strong>. Of course  in this specific case you could also have used <code>&#123;&#123;fill title menu1&#125;&#125;</code>: <strong>Code blocks</strong>.</p>
+<p>Of course these examples are not very useful, in practice you might want to use it to generate actual HTML in a specific way using Julia code. For instance you can use it to customise how <a href="https://expert.kitty/franlin-theme/menu3/#customising_tag_pages">tag pages look like</a>.</p>
+<p>A nice example of what you can do is in the <a href="https://juliasymbolics.github.io/SymbolicUtils.jl/api/">SymbolicUtils.jl manual</a> where they use a <code>hfun_</code> to generate HTML encapsulating the content of code docstrings, in a way doing something similar to what Documenter does. See <a href="https://github.com/JuliaSymbolics/SymbolicUtils.jl/blob/website/utils.jl">how they defined it</a>.</p>
+<p><strong>Note</strong>: the  output <strong>will not</strong> be reprocessed by Franklin, if you want to generate markdown which should be processed by Franklin, then use <code>return fd2html&#40;markdown, internal&#61;true&#41;</code> at the end.</p>
+<h3 id="custom_lx">Custom &quot;lx&quot;</h3>
+<p>These commands will look the same as latex commands but what they do with their content is now entirely controlled by your code. You can use this to do your own parsing of specific chunks of your content if you so desire.</p>
+<p>The definition of <code>lx_*</code> commands <strong>must</strong> look like this:</p>
+<pre><code class="language-julia">function lx_baz&#40;com, _&#41;
+  # keep this first line
+  brace_content &#61; Franklin.content&#40;com.braces&#91;1&#93;&#41; # input string
+  # do whatever you want here
+  return uppercase&#40;brace_content&#41;
+end</code></pre>
+<p>You can call the above with <code>\baz&#123;some string&#125;</code>: SOME STRING.</p>
+<p><strong>Note</strong>: the output <strong>will be</strong> reprocessed by Franklin, if you want to avoid this, then escape the output by using <code>return &quot;~~~&quot; * s * &quot;~~~&quot;</code> and it will be plugged  in as is in the HTML.</p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Expert Kitty</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Code blocks  ]]>
+  </title>
+  <link> https://expert.kitty/franlin-theme/menu1/index.html </link>
+  <guid> https://expert.kitty/franlin-theme/menu1/index.html </guid>
+  <description>
+    <![CDATA[  A short description of the page which would serve as <strong>blurb</strong> in a <code>RSS</code> feed; you can use basic markdown here but the whole description string must be a single line &#40;not a multiline string&#41;. Like this one for instance. Keep in mind that styling is minimal in RSS so for instance don&#39;t expect maths or fancy styling to work; images should be ok though: <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Rick_and_Morty_opening_credits.jpeg" alt="" />  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  
+<h1 id="working_with_code_blocks">Working with code blocks</h1>
+<div class="franklin-toc"><ol><li>Live evaluation of code blocks</li><li>Including scripts</li></ol></div>
+<h2 id="live_evaluation_of_code_blocks">Live evaluation of code blocks</h2>
+<p>If you would like to show code as well as what the code outputs, you only need to specify where the script corresponding to the code block will be saved.</p>
+<p>Indeed, what happens is that the code block gets saved as a script which then gets executed. This also allows for that block to not be re-executed every time you change something <em>else</em> on the page.</p>
+<p>Here&#39;s a simple example &#40;change values in <code>a</code> to see the results being live updated&#41;:</p>
+<pre><code class="language-julia">using LinearAlgebra
+a &#61; &#91;1, 2, 3, 3, 4, 5, 2, 2&#93;
+@show dot&#40;a, a&#41;
+println&#40;dot&#40;a, a&#41;&#41;</code></pre>
+<p>You can now show what this would look like:</p>
+<pre><code class="plaintext code-output">dot(a, a) = 72
+72
+</code></pre>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><p>you don&#39;t have to specify the <code>.jl</code> &#40;see below&#41;,</p>
+</li>
+<li><p>you do need to explicitly use print statements or <code>@show</code> for things to show, so just leaving a variable at the end like you would in the REPL will show nothing,</p>
+</li>
+<li><p>only Julia code blocks are supported at the moment, there may be a support for scripting languages like <code>R</code> or <code>python</code> in the future,</p>
+</li>
+<li><p>the way you specify the path is important; see <a href="https://franklinjl.org/code/#more_on_paths">the docs</a> for more info. If you don&#39;t care about how things are structured in your <code>/assets/</code> folder, just use <code>./scriptname.jl</code>. If you want things to be grouped, use <code>./group/scriptname.jl</code>. For more involved uses, see the docs.</p>
+</li>
+</ul>
+<p>Lastly, it&#39;s important to realise that if you don&#39;t change the content of the code, then that code will only be executed <em>once</em> even if you make multiple changes to the text around it.</p>
+<p>Here&#39;s another example,</p>
+<pre><code class="language-julia">for i ∈ 1:5, j ∈ 1:5
+    print&#40;&quot; &quot;, rpad&#40;&quot;*&quot;^i,5&#41;, lpad&#40;&quot;*&quot;^&#40;6-i&#41;,5&#41;, j&#61;&#61;5 ? &quot;\n&quot; : &quot; &quot;^4&#41;
+end</code></pre>
+<p>which gives the &#40;utterly useless&#41;:</p>
+<pre><code class="plaintext code-output"> *    *****     *    *****     *    *****     *    *****     *    *****
+ **    ****     **    ****     **    ****     **    ****     **    ****
+ ***    ***     ***    ***     ***    ***     ***    ***     ***    ***
+ ****    **     ****    **     ****    **     ****    **     ****    **
+ *****    *     *****    *     *****    *     *****    *     *****    *
+</code></pre>
+<p>note the absence of <code>.jl</code>, it&#39;s inferred.</p>
+<p>You can also hide lines &#40;that will be executed nonetheless&#41;:</p>
+<pre><code class="language-julia">using Random
+@show randn&#40;2&#41;</code></pre>
+<pre><code class="plaintext code-output">randn(2) = [-0.07058313895389791, 0.5314767537831963]
+</code></pre>
+<h2 id="including_scripts">Including scripts</h2>
+<p>Another approach is to include the content of a script that has already been executed. This can be an alternative to the description above if you&#39;d like to only run the code once because it&#39;s particularly slow or because it&#39;s not Julia code. For this you can use the <code>\input</code> command specifying which language it should be tagged as:</p>
+<p><pre><code class="language-julia">x &#61; randn&#40;5&#41;
+y &#61; randn&#40;5&#41;for i in 1:5
+    println&#40;rpad&#40;&quot;*&quot;^i, 10, &#39;-&#39;&#41;, round&#40;dot&#40;x, y&#41;, digits&#61;1&#41;&#41;
+end</code></pre> </p>
+<p>these scripts can be run in such a way that their output is also saved to file, see <code>scripts/generate_results.jl</code> for instance, and you can then also input the results:</p>
+<p><pre><code class="plaintext code-output">*---------1.3
+**--------1.3
+***-------1.3
+****------1.3
+*****-----1.3
+</code></pre> </p>
+<p>which is convenient if you&#39;re presenting code.</p>
+<p><strong>Note</strong>: paths specification matters, see <a href="https://franklinjl.org/code/#more_on_paths">the docs</a> for details.</p>
+<p>Using this approach with the <code>generate_results.jl</code> file also makes sure that all the code on your website works and that all results match the code which makes maintenance easier.</p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Expert Kitty</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>

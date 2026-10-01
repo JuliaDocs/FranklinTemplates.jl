@@ -24,11 +24,9 @@ jobs:
         with:
           version: 1
       - name: Build
-        run: julia -e '
+        run: julia --project=docs -e '
           using Pkg;
-          Pkg.add(url="https://github.com/JuliaDocs/Franklin.jl", rev="master");
-          Pkg.add(["NodeJS", "PyPlot", "GR", "Literate", "PlotlyJS", "Hyperscript"]);
-          Pkg.develop(path=".");
+          Pkg.instantiate();
           using NodeJS; run(`$(npm_cmd()) install highlight.js`);
           using Franklin;
           using FranklinTemplates;

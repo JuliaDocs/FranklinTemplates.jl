@@ -1,0 +1,15 @@
+[deps]
+Franklin = "713c75ef-9fc9-4b05-94a9-213340da978e"
+FranklinTemplates = "3a985190-f512-4703-8d38-2a7944ed5916"
+GR = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
+Hyperscript = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
+NodeJS = "2bd173c7-0d6d-553b-b6af-13a54713934c"
+PlotlyJS = "f0f68f2c-4968-5e81-91da-67840de0976a"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+
+[sources]
+FranklinTemplates = {path = ".."}
+
+[compat]
+Franklin = "0.10.97"

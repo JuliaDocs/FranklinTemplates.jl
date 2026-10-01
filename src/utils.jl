@@ -244,7 +244,9 @@ Build all the templates.
 function build_templates()
     root = dirname(dirname(@__FILE__))
     make_path = joinpath(root, "docs", "make.jl")
-    include(make_path)
+    # Evaluate in Main so `using Franklin` resolves from the active (docs) environment;
+    # Franklin is not, and must not be, a dependency of FranklinTemplates.
+    Base.include(Main, make_path)
     for (root, _, files) ∈ walkdir(joinpath(root, "docs", "build"))
         for file ∈ files
             endswith(file, ".html") || continue;

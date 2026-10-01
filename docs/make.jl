@@ -1,5 +1,10 @@
 using FranklinTemplates, Franklin
 
+# Some templates (e.g. sandbox-extended) ship a Project.toml that Franklin activates
+# while building. Keep the docs environment on the load path so Franklin and the
+# packages the templates use can still be found.
+push!(LOAD_PATH, @__DIR__)
+
 descr = Dict{String,String}(
     "sandbox"   => """
                    <span class="th-name">sandbox</span>
